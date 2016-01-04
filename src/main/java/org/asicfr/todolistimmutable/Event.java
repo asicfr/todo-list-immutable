@@ -5,12 +5,16 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.Date;
 
+import javax.annotation.Nonnull;
+
 import com.google.common.base.Strings;
+import com.jcabi.aspects.Immutable;
 
 /**
  * Event on a todo
  * @author slabbe
  */
+@Immutable
 public final class Event { // TODO interface si besoin ???
 
 	/**
@@ -54,6 +58,7 @@ public final class Event { // TODO interface si besoin ???
 	 * Get the responsible for the event
 	 * @return the responsible for the event
 	 */
+	@Nonnull
 	public String getUser() {
 		return this.user;
 	}
@@ -62,6 +67,7 @@ public final class Event { // TODO interface si besoin ???
 	 * Get the type of the event
 	 * @return the type of the event
 	 */
+	@Nonnull
 	public TypeEvent getTypeEvent() {
 		return this.typeEvent;
 	}
@@ -70,6 +76,7 @@ public final class Event { // TODO interface si besoin ???
 	 * Get the date of the event
 	 * @return the date of the event
 	 */
+	@Nonnull
 	public Date getDateEvent() {
 		// Defensive copy of the list to avoid side effect
 		return new Date(this.dateEvent.getTime());

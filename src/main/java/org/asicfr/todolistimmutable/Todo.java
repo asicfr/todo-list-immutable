@@ -5,13 +5,17 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.List;
 
+import javax.annotation.Nonnull;
+
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableList;
+import com.jcabi.aspects.Immutable;
 
 /**
  * The todo simple implementation
  * @author slabbe
  */
+@Immutable
 public final class Todo {
 	
 	/**
@@ -55,6 +59,7 @@ public final class Todo {
 	 * Get the title
 	 * @return the title
 	 */
+	@Nonnull
 	public String getTitle() {
 		return this.title;
 	}
@@ -63,6 +68,7 @@ public final class Todo {
 	 * Getif the todo is done or not
 	 * @return if the todo is done or not
 	 */
+	@Nonnull
 	public boolean isDone() {
 		return this.done;
 	}
@@ -71,9 +77,10 @@ public final class Todo {
 	 * Get all events of the todo
 	 * @return all events of the todo
 	 */
+	@Nonnull
 	public List<Event> getHistorics() {
 		// Defensive copy of the list to avoid side effect
-		return ImmutableList.copyOf(this.historics);
+		return ImmutableList.copyOf(this.historics); // TODO pas necessaire ???
 	}
 	
 }

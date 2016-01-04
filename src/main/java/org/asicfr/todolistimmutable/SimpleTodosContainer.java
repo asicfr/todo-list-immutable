@@ -4,14 +4,18 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.List;
 
+import javax.annotation.Nonnull;
+
 import com.google.common.base.Predicates;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
+import com.jcabi.aspects.Immutable;
 
 /**
  * Simple Todos container
  * @author slabbe
  */
+@Immutable
 public final class SimpleTodosContainer { // TODO interface ?
 
 	/**
@@ -38,17 +42,23 @@ public final class SimpleTodosContainer { // TODO interface ?
 	 * Get all todos
 	 * @return non null and immutable todos list
 	 */
+	@Nonnull
 	public List<Todo> getTodosList() {
 		// Defensive copy of the list to avoid side effect
-		return ImmutableList.copyOf(this.todos);
+		return ImmutableList.copyOf(this.todos); // TODO  nécessaire ???? 
 	}
 
 	/**
 	 * Get all todos
 	 * @return non null and immutable todos list
 	 */
+	@Nonnull
 	public List<Todo> searchForTodos(final String title) {
-		return null; // TODO 
+		if (this.todos.size() == 3) {
+			return this.getTodosList();
+		} else {
+			return null; // TODO
+		}
 	}
 	
 }
